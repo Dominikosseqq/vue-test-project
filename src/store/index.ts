@@ -1,8 +1,8 @@
-import { endpoints } from "@/helpers/constants";
+import { endpointsApiGiphy } from "@/helpers/constants";
 import {
   mapFilterInputIntoRequestParams,
   prepareGiphsDataFromRequest,
-} from "@/helpers/giphyApi/giphyApi";
+} from "@/helpers/giphy-api/giphyApi";
 import { GiphsToDisplay, GiphFilterInput } from "@/interfaces/giphyApiTypes";
 import { getGiphyRequest } from "@/services/giphyApi";
 import { AxiosResponse } from "axios";
@@ -10,7 +10,7 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    searchText: "Witcher",
+    searchText: "witcher",
     giphsToDisplay: {} as GiphsToDisplay,
   },
   getters: {},
@@ -29,7 +29,7 @@ export default createStore({
     },
 
     getTrendingGiphs({ commit }, filter: GiphFilterInput) {
-      const endpoint = endpoints.trending;
+      const endpoint = endpointsApiGiphy.trending;
       const options = mapFilterInputIntoRequestParams(filter);
 
       getGiphyRequest(endpoint, options).then((res: AxiosResponse): void => {
@@ -39,7 +39,7 @@ export default createStore({
     },
 
     getSearchedGiphs({ commit }, filter: GiphFilterInput) {
-      const endpoint = endpoints.search;
+      const endpoint = endpointsApiGiphy.search;
       const options = mapFilterInputIntoRequestParams(filter);
 
       getGiphyRequest(endpoint, options).then((res: AxiosResponse): void => {
