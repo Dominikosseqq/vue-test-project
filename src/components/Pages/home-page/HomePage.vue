@@ -2,14 +2,19 @@
   <div class="home">
     <img alt="Vue logo" src="@/assets/logo.png" />
     <SearchBar />
-    <div class="">
+    <div>
+      {{ "filter section" }}
+    </div>
+    <div class="home-container">
       <div v-for="giph in giphsObj.data" :key="giph.id">
-        <img
-          :src="giph.fixed_height_downsampled.webp"
-          :alt="giph.title"
-          :height="giph.fixed_height_downsampled.height"
-          width="300"
-        />
+        <div v-lazy-container="{ selector: 'img', loading: './logo.png' }">
+          <img
+            :data-src="giph.fixed_height_downsampled.webp"
+            :alt="giph.title"
+            :height="giph.fixed_height_downsampled.height"
+            width="300"
+          />
+        </div>
       </div>
     </div>
   </div>
