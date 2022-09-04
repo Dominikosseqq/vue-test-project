@@ -25,6 +25,8 @@ import { defineComponent } from "vue";
 import { GiphsToDisplay } from "@/interfaces/giphyApiTypes";
 import SearchBar from "@/components/ui-components/search-bar/SearchBar.vue";
 import store from "@/store";
+import { getParamsFromUrl } from "@/helpers/params/getParamsFromUrl";
+import { applyParamsToUrl } from "@/helpers/params/applyParamsToUrl";
 
 export default defineComponent({
   name: "HomePage",
@@ -35,6 +37,23 @@ export default defineComponent({
     giphsObj() {
       return store.state.giphsToDisplay as GiphsToDisplay;
     },
+  },
+  beforeMount() {
+    const params = getParamsFromUrl(history);
+    const isParamsIncludesQuery = Object.keys(params).includes("q");
+    const searchText = store.state.searchText;
+    if (!isParamsIncludesQuery) {
+      Object.assign(params, {
+        q: searchText,
+      });
+      applyParamsToUrl(history, searchText);
+    }
+
+    const action = Object.keys(params).includes("q")
+      ? "getSearchedGiphs"
+      : "getTrendingGiphs";
+
+    store.dispatch(action, params);
   },
 });
 </script>
