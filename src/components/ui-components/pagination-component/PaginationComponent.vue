@@ -39,7 +39,10 @@ export default defineComponent({
   },
   data: function () {
     return {
-      currentPage: store.state.currentPage,
+      currentPage:
+        store.state.giphsToDisplay.pagination.offset > 0
+          ? store.state.currentPage
+          : store.state.giphsToDisplay.pagination.offset + 1,
     };
   },
   methods: {
