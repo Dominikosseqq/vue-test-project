@@ -2,7 +2,19 @@ div {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.pagination-main-container {
+    flex-direction: column;
+}
+
+.pagination-container {
+    margin-top: 1rem;
     gap: 1rem;
+}
+
+.current-page-container {
+    font-weight: 800;
 }
 
 button {
