@@ -6,6 +6,11 @@ import {
 } from "@/interfaces/giphyApiTypes";
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 
+/**
+ * Prepare finally object from response data and add api_key to request from .env
+ * @param response {AxiosResponse}
+ * @return {GiphFilterInput}
+ */
 export const prepareGiphsDataFromRequest = (
   response: AxiosResponse
 ): GiphsToDisplay => {
@@ -33,6 +38,11 @@ export const prepareGiphsDataFromRequest = (
   };
 };
 
+/**
+ * just map query to search query (params)
+ * @param filter {GiphFilterInput}
+ * @return {AxiosRequestConfig}
+ */
 export const mapFilterInputIntoRequestParams = (filter: GiphFilterInput) => {
   const { q, limit, offset } = filter || {};
   const options = {
