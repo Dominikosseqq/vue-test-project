@@ -1,4 +1,4 @@
-App preview on netlify: [Demo](https://63166ee3f53df500086469dd--velvety-phoenix-d925a9.netlify.app/
+App preview on netlify: [Demo](https://63166ee3f53df500086469dd--velvety-phoenix-d925a9.netlify.app/)
 
 # vue-test-project
 
