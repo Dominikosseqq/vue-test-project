@@ -5,7 +5,7 @@
     </div>
     <div class="pagination-container">
       <button
-        @click="(event) => changePage(event, '-')"
+        @click="(event) => changePage(event, currentPage - 1)"
         :disabled="isFirstPage"
       >
         {{ "<" }}
@@ -19,7 +19,10 @@
       >
         {{ pagesCount }}
       </button>
-      <button @click="(event) => changePage(event, '+')" :disabled="isLastPage">
+      <button
+        @click="(event) => changePage(event, currentPage + 1)"
+        :disabled="isLastPage"
+      >
         {{ ">" }}
       </button>
     </div>
