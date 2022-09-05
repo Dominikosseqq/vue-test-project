@@ -1,4 +1,5 @@
-[DEMO][https://63166cd0ae79770009add8dc--velvety-phoenix-d925a9.netlify.app/]
+Demo: [Demo](https://63166cd0ae79770009add8dc--velvety-phoenix-d925a9.netlify.app/)
+
 # vue-test-project
 
 ## Project setup
